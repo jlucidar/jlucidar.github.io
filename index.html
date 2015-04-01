@@ -1,14 +1,31 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <title>Jimmy Lucidarme</title>
+
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <script src="./components/platform/platform.js"></script>
+  <script src="./jquery-2.1.1.js"></script>
+
 <link rel="import" href="./components/core-icon-button/core-icon-button.html">
+<link rel="import" href="./components/core-icons/hardware-icons.html">
+<link rel="import" href="./components/core-icons/maps-icons.html">
 <link rel="import" href="./components/core-toolbar/core-toolbar.html">
 <link rel="import" href="./components/core-header-panel/core-header-panel.html">
 <link rel="import" href="./components/core-drawer-panel/core-drawer-panel.html">
 <link rel="import" href="./components/core-menu/core-submenu.html">
 <link rel="import" href="./components/core-item/core-item.html">
  
-<polymer-element name="my-element">
- 
-  <template>
-    <style>    
+  <style>
+  html,body {
+    height: 100%;
+    margin: 0;
+    background-color: #E5E5E5;
+    font-family: 'RobotoDraft', sans-serif;
+  }
       :host {
         position: absolute;
         width: 100%;
@@ -41,13 +58,14 @@
         width: 100%;
         height: 100%;
       }
-      #section1 {
+      #side_menu {
         box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
         background-color: rgb(36, 36, 36);
       }
-      #section2 {
+      #content_container {
         box-sizing: border-box;
         background-color: rgb(221, 221, 221);
+        overflow:auto;
       }
       #core_menu {
         font-size: 16px;
@@ -92,24 +110,34 @@
         margin: 20px;
         background-color: rgb(255, 255, 255);
       }
-    </style>
-    <core-header-panel mode="standard" id="core_header_panel">
+  </style>
+
+</head>
+
+<body unresolved>
+  <!-- mapping my icons-->
+  <core-iconset id="custom_icons" src="images/custom_logos.png" width="24" iconSize="24"
+      icons="makey">
+  </core-iconset>
+
+
+   <core-header-panel mode="standard" id="core_header_panel">
       <core-toolbar id="core_toolbar">
         <core-icon-button active icon="menu" id="core_icon_button" class="selected"></core-icon-button>
         <div id="div">Jimmy Lucidarme - French student engineer</div>
       </core-toolbar>
       <section id="section">
         <core-drawer-panel transition id="core_drawer_panel" touch-action>
-          <section id="section1" drawer>
+          <section id="side_menu" drawer>
             <core-menu selected="0" selectedindex="0" id="core_menu">
-              <core-submenu opened active id="core_submenu" icon="settings" label="Me">
-                <core-item id="core_item" label="Electronics & Computer" horizontal center layout></core-item>
-                <core-item id="core_item1" label="Engineering" horizontal center layout></core-item>
-                <core-item id="core_item2" label="Trips" horizontal center layout></core-item>
-                <core-item id="core_item3" label="Music" horizontal center layout></core-item>
-                <core-item id="core_item4" label="Maker" horizontal center layout></core-item>
+              <core-submenu opened active id="core_submenu" icon="account-circle" label="Me">
+                <core-item id="core_item"  icon="hardware:memory" label="Geek" horizontal center layout></core-item>
+                <core-item id="core_item1" icon="settings" label="Engineering" horizontal center layout></core-item>
+                <core-item id="core_item2" icon="maps:earth" label="Trips" horizontal center layout></core-item>
+                <core-item id="core_item3" icon="hardware:headset" label="Music" horizontal center layout></core-item>
+                <core-item id="core_item4" icon="custom_icons:makey" label="Maker" horizontal center layout></core-item>
               </core-submenu>
-              <core-submenu id="core_submenu1" icon="settings" label="Resume">
+              <core-submenu id="core_submenu1" icon="description" label="Resume">
                 <core-item id="core_item5" label="Now" horizontal center layout></core-item>
                 <core-item id="core_item6" label="Experience" horizontal center layout></core-item>
                 <core-item id="core_item7" label="Skills" horizontal center layout></core-item>
@@ -118,7 +146,7 @@
               </core-submenu>
             </core-menu>
           </section>
-          <section id="section2" main vertical layout center>
+          <section id="content_container" main vertical layout center>
             <core-card id="core_card" layout vertical center center-justified></core-card>
             <core-card id="core_card1" layout vertical center></core-card>
             <core-card id="core_card2" layout vertical start></core-card>
@@ -126,14 +154,13 @@
         </core-drawer-panel>
       </section>
     </core-header-panel>
-  </template>
- 
-  <script>
- 
-    Polymer({
-      
-    });
- 
-  </script>
- 
-</polymer-element>
+
+</body>
+<script>
+$(document).ready(function(){
+  $('#core_icon_button').click(function(e){
+   document.querySelector('core_drawer_panel').togglePanel();
+  });
+});
+</script>
+</html>
