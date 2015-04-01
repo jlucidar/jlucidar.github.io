@@ -1,0 +1,139 @@
+<link rel="import" href="./components/core-icon-button/core-icon-button.html">
+<link rel="import" href="./components/core-toolbar/core-toolbar.html">
+<link rel="import" href="./components/core-header-panel/core-header-panel.html">
+<link rel="import" href="./components/core-drawer-panel/core-drawer-panel.html">
+<link rel="import" href="./components/core-menu/core-submenu.html">
+<link rel="import" href="./components/core-item/core-item.html">
+ 
+<polymer-element name="my-element">
+ 
+  <template>
+    <style>    
+      :host {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        left: 0px;
+        top: 0px;
+      }
+      #core_header_panel {
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        position: absolute;
+      }
+      #core_toolbar {
+        color: rgb(255, 255, 255);
+        background-color: rgb(81, 125, 200);
+      }
+      #section {
+        height: 100%;
+        background: linear-gradient(rgb(214, 227, 231), rgb(173, 216, 230));
+      }
+      #core_drawer_panel {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+      }
+      #section1 {
+        box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+        background-color: rgb(36, 36, 36);
+      }
+      #section2 {
+        box-sizing: border-box;
+        background-color: rgb(221, 221, 221);
+      }
+      #core_menu {
+        font-size: 16px;
+        left: 0px;
+        top: 0px;
+        position: relative;
+        color: rgb(255, 255, 255);
+      }
+      #core_card {
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+        box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+        left: 0px;
+        top: 0px;
+        width: 80%;
+        height: 150px;
+        opacity: 0.8;
+        margin: 15px;
+        background-color: rgb(255, 255, 255);
+      }
+      #core_card1 {
+        width: 80%;
+        height: 150px;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+        box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+        margin: 15px;
+        background-color: rgb(255, 255, 255);
+      }
+      #core_card2 {
+        width: 80%;
+        height: 150px;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+        box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+        margin: 20px;
+        background-color: rgb(255, 255, 255);
+      }
+    </style>
+    <core-header-panel mode="standard" id="core_header_panel">
+      <core-toolbar id="core_toolbar">
+        <core-icon-button active icon="menu" id="core_icon_button" class="selected"></core-icon-button>
+        <div id="div">Jimmy Lucidarme - French student engineer</div>
+      </core-toolbar>
+      <section id="section">
+        <core-drawer-panel transition id="core_drawer_panel" touch-action>
+          <section id="section1" drawer>
+            <core-menu selected="0" selectedindex="0" id="core_menu">
+              <core-submenu opened active id="core_submenu" icon="settings" label="Me">
+                <core-item id="core_item" label="Electronics & Computer" horizontal center layout></core-item>
+                <core-item id="core_item1" label="Engineering" horizontal center layout></core-item>
+                <core-item id="core_item2" label="Trips" horizontal center layout></core-item>
+                <core-item id="core_item3" label="Music" horizontal center layout></core-item>
+                <core-item id="core_item4" label="Maker" horizontal center layout></core-item>
+              </core-submenu>
+              <core-submenu id="core_submenu1" icon="settings" label="Resume">
+                <core-item id="core_item5" label="Now" horizontal center layout></core-item>
+                <core-item id="core_item6" label="Experience" horizontal center layout></core-item>
+                <core-item id="core_item7" label="Skills" horizontal center layout></core-item>
+                <core-item id="core_item8" label="Education" horizontal center layout></core-item>
+                <core-item id="core_item9" label="Personal" horizontal center layout></core-item>
+              </core-submenu>
+            </core-menu>
+          </section>
+          <section id="section2" main vertical layout center>
+            <core-card id="core_card" layout vertical center center-justified></core-card>
+            <core-card id="core_card1" layout vertical center></core-card>
+            <core-card id="core_card2" layout vertical start></core-card>
+          </section>
+        </core-drawer-panel>
+      </section>
+    </core-header-panel>
+  </template>
+ 
+  <script>
+ 
+    Polymer({
+      
+    });
+ 
+  </script>
+ 
+</polymer-element>
